@@ -38,21 +38,22 @@ export default function CaseStudies() {
       <div className="container">
         <div className="section-header">
           <h2>案例展示</h2>
-          <Link href="/100products" className="view-more-btn">
+          <Link href="/templates" className="view-more-btn">
             查看更多
           </Link>
         </div>
         <div className="case-grid">
           {cases.map((caseItem, index) => (
-            <div key={index} className="case-item">
-              <div 
-                className="case-image" 
-                onClick={() => {
-                  if ((window as any).openImageModal) {
-                    (window as any).openImageModal(caseItem.folder, caseItem.title)
-                  }
-                }}
-              >
+            <div 
+              key={index} 
+              className="case-item"
+              onClick={() => {
+                if ((window as any).openImageModal) {
+                  (window as any).openImageModal(caseItem.folder, caseItem.title)
+                }
+              }}
+            >
+              <div className="case-image">
                 <img src={`/${caseItem.folder}/0.png`} alt={`${caseItem.title} 分析报告案例`} />
               </div>
               <h3>{caseItem.title}</h3>

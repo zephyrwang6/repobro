@@ -56,20 +56,21 @@ export default function Products() {
       <section className="case-studies">
         <div className="container">
           <div className="section-header">
-            <h2>产品分析案例展示</h2>
+            <h2>每日更新分析案例</h2>
             <p>点击任意产品查看详细分析报告</p>
           </div>
           <div className="case-grid">
             {products.map((product, index) => (
-              <div key={index} className="case-item">
-                <div 
-                  className="case-image" 
-                  onClick={() => {
-                    if ((window as any).openImageModal) {
-                      (window as any).openImageModal(product.folder, product.title)
-                    }
-                  }}
-                >
+              <div 
+                key={index} 
+                className="case-item"
+                onClick={() => {
+                  if ((window as any).openImageModal) {
+                    (window as any).openImageModal(product.folder, product.title)
+                  }
+                }}
+              >
+                <div className="case-image">
                   <img src={`/${product.folder}/0.png`} alt={`${product.title} 分析报告案例`} />
                 </div>
                 <h3>{product.title}</h3>

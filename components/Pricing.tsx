@@ -21,7 +21,7 @@ export default function Pricing() {
               <span className="amount">9.9</span>
               <span className="period">/ 份</span>
             </div>
-            <p className="price-description">专业团队 + AI工具，以传统咨询1/100的价格，获得同等质量的分析报告</p>
+            <p className="price-description">以传统咨询1/100的价格，获得更高质量的分析报告</p>
           </div>
           <div className="pricing-features">
             {pricingFeatures.map((feature, index) => (
