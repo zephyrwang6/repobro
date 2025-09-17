@@ -9,7 +9,7 @@ export default function Hero() {
               <br /><span className="hero-subtitle-text">AI 驱动的专业分析服务</span>
             </h1>
             <p className="hero-subtitle">
-              为您量身定制的行业深度分析报告
+              以传统咨询千分之一的价格获得更高质量的分析报告
             </p>
             <div className="hero-features">
               <div className="feature-item">

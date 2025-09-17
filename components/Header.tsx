@@ -50,12 +50,27 @@ export default function Header() {
             <Link href="/templates">分析案例</Link>
             <Link href="/home#pricing">定价</Link>
             <Link href="/home#process">服务流程</Link>
-            <a href="https://v3oxu28gnc.feishu.cn/share/base/form/shrcnGjGtbvIUfnSvYRbDr7mqoc" target="_blank" rel="noopener noreferrer" className="cta-btn">立即开始</a>
+            <div className="user-group-nav">
+              <span className="user-group-label">用户群</span>
+              <div className="qr-code-tooltip">
+                <Image 
+                  src="/logo/wechat-qr.jpg" 
+                  alt="微信用户群二维码" 
+                  width={150} 
+                  height={150}
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none'
+                  }}
+                />
+                <p>扫码加入用户群</p>
+              </div>
+            </div>
+            <a href="https://v3oxu28gnc.feishu.cn/share/base/form/shrcnGjGtbvIUfnSvYRbDr7mqoc" target="_blank" rel="noopener noreferrer" className="cta-btn">获取报告</a>
           </nav>
 
           {/* Mobile Navigation */}
           <div className="mobile-nav">
-            <a href="https://v3oxu28gnc.feishu.cn/share/base/form/shrcnGjGtbvIUfnSvYRbDr7mqoc" target="_blank" rel="noopener noreferrer" className="cta-btn mobile-cta">立即开始</a>
+            <a href="https://v3oxu28gnc.feishu.cn/share/base/form/shrcnGjGtbvIUfnSvYRbDr7mqoc" target="_blank" rel="noopener noreferrer" className="cta-btn mobile-cta">获取报告</a>
             <button className="hamburger" onClick={toggleMobileMenu} aria-label="菜单">
               <span className={`hamburger-line ${isMobileMenuOpen ? 'active' : ''}`}></span>
               <span className={`hamburger-line ${isMobileMenuOpen ? 'active' : ''}`}></span>
@@ -71,6 +86,21 @@ export default function Header() {
                 <Link href="/templates" onClick={closeMobileMenu}>分析案例</Link>
                 <Link href="/home#pricing" onClick={closeMobileMenu}>定价</Link>
                 <Link href="/home#process" onClick={closeMobileMenu}>服务流程</Link>
+                <div className="mobile-user-group">
+                  <span>用户群</span>
+                  <div className="mobile-qr-code">
+                    <Image 
+                      src="/logo/wechat-qr.jpg" 
+                      alt="微信用户群二维码" 
+                      width={120} 
+                      height={120}
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none'
+                      }}
+                    />
+                    <p>扫码加入用户群</p>
+                  </div>
+                </div>
               </nav>
             </div>
           )}
