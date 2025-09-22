@@ -1,45 +1,48 @@
 import Link from 'next/link'
+import { useLanguage } from '../contexts/LanguageContext'
 
 export default function CaseStudies() {
+  const { t } = useLanguage()
+
   const cases = [
     {
       folder: "granola",
-      title: "Granola 行业分析",
-      description: "深度分析 Granola 市场现状、竞争格局和发展趋势"
+      title: t('cases.granola.title'),
+      description: t('cases.granola.description')
     },
     {
       folder: "huggingface", 
-      title: "Hugging Face 分析",
-      description: "AI 开源平台的市场定位和商业模式研究"
+      title: t('cases.huggingface.title'),
+      description: t('cases.huggingface.description')
     },
     {
       folder: "ollama",
-      title: "Ollama 分析", 
-      description: "本地 AI 模型部署工具的技术优势分析"
+      title: t('cases.ollama.title'),
+      description: t('cases.ollama.description')
     },
     {
       folder: "supabase",
-      title: "Supabase 分析",
-      description: "开源 Firebase 替代方案的市场机会评估"
+      title: t('cases.supabase.title'),
+      description: t('cases.supabase.description')
     }
   ]
 
   const reportContents = [
-    "行业概况与规模",
-    "竞争格局分析", 
-    "细分市场研究",
-    "发展趋势预测",
-    "风险机会评估",
-    "策略建议总结"
+    t('cases.content1'),
+    t('cases.content2'),
+    t('cases.content3'),
+    t('cases.content4'),
+    t('cases.content5'),
+    t('cases.content6')
   ]
 
   return (
     <section id="case-studies" className="case-studies">
       <div className="container">
         <div className="section-header">
-          <h2>案例展示</h2>
+          <h2>{t('cases.title')}</h2>
           <Link href="/templates" className="view-more-btn">
-            查看更多
+            {t('cases.viewMore')}
           </Link>
         </div>
         <div className="case-grid">
@@ -54,7 +57,7 @@ export default function CaseStudies() {
               }}
             >
               <div className="case-image">
-                <img src={`/${caseItem.folder}/0.png`} alt={`${caseItem.title} 分析报告案例`} />
+                <img src={`/${caseItem.folder}/0.png`} alt={`${caseItem.title} analysis report case`} />
               </div>
               <h3>{caseItem.title}</h3>
               <p>{caseItem.description}</p>
@@ -62,8 +65,8 @@ export default function CaseStudies() {
           ))}
         </div>
         <div className="report-contents">
-          <h3>报告包含内容</h3>
-          <p className="report-subtitle">具体根据产品特点而定</p>
+          <h3>{t('cases.reportTitle')}</h3>
+          <p className="report-subtitle">{t('cases.reportSubtitle')}</p>
           <div className="content-grid">
             {reportContents.map((content, index) => (
               <div key={index} className="content-item">

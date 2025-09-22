@@ -1,27 +1,31 @@
+import { useLanguage } from '../contexts/LanguageContext'
+
 export default function Pricing() {
+  const { t } = useLanguage()
+
   const pricingFeatures = [
-    "专业分析模板",
-    "全面文字报告",
-    "图文PPT演示",
-    "24小时快速交付",
-    "一对一专属服务"
+    t('pricing.feature1'),
+    t('pricing.feature2'),
+    t('pricing.feature3'),
+    t('pricing.feature4'),
+    t('pricing.feature5')
   ]
 
   return (
     <section id="pricing" className="pricing">
       <div className="container">
         <div className="section-header">
-          <h2>产品定价</h2>
+          <h2>{t('pricing.title')}</h2>
         </div>
         <div className="pricing-card">
           <div className="pricing-header">
-            <h3>定制行业分析报告</h3>
+            <h3>{t('pricing.cardTitle')}</h3>
             <div className="price">
-              <span className="currency">¥</span>
-              <span className="amount">9.9</span>
-              <span className="period">/ 份</span>
+              <span className="currency">{t('pricing.currency')}</span>
+              <span className="amount">{t('pricing.amount')}</span>
+              <span className="period">{t('pricing.period')}</span>
             </div>
-            <p className="price-description">以传统咨询1/100的价格，获得更高质量的分析报告</p>
+            <p className="price-description">{t('pricing.description')}</p>
           </div>
           <div className="pricing-features">
             {pricingFeatures.map((feature, index) => (
@@ -30,7 +34,7 @@ export default function Pricing() {
           </div>
           <div className="value-proposition">
             <div className="value-badge">
-              <span>超值性价比</span>
+              <span>{t('pricing.valueBadge')}</span>
             </div>
           </div>
         </div>

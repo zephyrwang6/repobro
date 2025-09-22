@@ -1,39 +1,43 @@
+import { useLanguage } from '../contexts/LanguageContext'
+
 export default function Scenarios() {
+  const { t } = useLanguage()
+
   const scenarios = [
     {
-      title: "商业决策",
+      title: t('scenarios.business.title'),
       items: [
-        "市场进入分析",
-        "竞争对手研究", 
-        "投资机会评估",
-        "商业模式分析"
+        t('scenarios.business.item1'),
+        t('scenarios.business.item2'),
+        t('scenarios.business.item3'),
+        t('scenarios.business.item4')
       ]
     },
     {
-      title: "学术研究",
+      title: t('scenarios.academic.title'),
       items: [
-        "毕业论文支撑",
-        "课题研究资料",
-        "行业现状梳理",
-        "趋势预测分析"
+        t('scenarios.academic.item1'),
+        t('scenarios.academic.item2'),
+        t('scenarios.academic.item3'),
+        t('scenarios.academic.item4')
       ]
     },
     {
-      title: "企业规划",
+      title: t('scenarios.enterprise.title'),
       items: [
-        "战略制定支撑",
-        "市场拓展研究",
-        "产品定位分析",
-        "风险评估报告"
+        t('scenarios.enterprise.item1'),
+        t('scenarios.enterprise.item2'),
+        t('scenarios.enterprise.item3'),
+        t('scenarios.enterprise.item4')
       ]
     },
     {
-      title: "投资分析",
+      title: t('scenarios.investment.title'),
       items: [
-        "行业前景评估",
-        "项目可行性研究",
-        "市场规模测算",
-        "盈利模式分析"
+        t('scenarios.investment.item1'),
+        t('scenarios.investment.item2'),
+        t('scenarios.investment.item3'),
+        t('scenarios.investment.item4')
       ]
     }
   ]
@@ -42,8 +46,8 @@ export default function Scenarios() {
     <section className="scenarios">
       <div className="container">
         <div className="section-header">
-          <h2>适用场景</h2>
-          <p>满足不同需求，助力各种决策</p>
+          <h2>{t('scenarios.title')}</h2>
+          <p>{t('scenarios.description')}</p>
         </div>
         <div className="scenarios-grid">
           {scenarios.map((scenario, index) => (

@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { useEffect } from 'react'
+import { useLanguage } from '../contexts/LanguageContext'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import Features from '../components/Features'
@@ -14,6 +15,8 @@ import Footer from '../components/Footer'
 import ImageModal from '../components/ImageModal'
 
 export default function Home() {
+  const { t } = useLanguage()
+
   useEffect(() => {
     // Initialize any client-side functionality here
     if (typeof window !== 'undefined') {
@@ -24,15 +27,15 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>报告佬 RepoBro- AI驱动的专业行业分析服务</title>
-        <meta name="description" content="专业AI行业分析报告服务，24小时快速交付，仅需9.9元，提供分析模板、文字报告和PPT演示" />
-        <meta name="keywords" content="行业分析,AI分析,报告,数据分析,市场研究" />
-        <meta property="og:title" content="报告佬（RepoBro）- AI驱动的专业行业分析服务" />
-        <meta property="og:description" content="专业AI行业分析报告服务，24小时快速交付，仅需9.9元" />
+        <title>{t('meta.title')}</title>
+        <meta name="description" content={t('meta.description')} />
+        <meta name="keywords" content={t('meta.keywords')} />
+        <meta property="og:title" content={t('meta.ogTitle')} />
+        <meta property="og:description" content={t('meta.ogDescription')} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="报告佬（RepoBro）- AI驱动的专业行业分析服务" />
-        <meta name="twitter:description" content="专业AI行业分析报告服务，24小时快速交付，仅需9.9元" />
+        <meta name="twitter:title" content={t('meta.twitterTitle')} />
+        <meta name="twitter:description" content={t('meta.twitterDescription')} />
       </Head>
 
       <Header />

@@ -1,25 +1,29 @@
+import { useLanguage } from '../contexts/LanguageContext'
+
 export default function Hero() {
+  const { t } = useLanguage()
+
   return (
     <section className="hero">
       <div className="container">
         <div className="hero-content">
           <div className="hero-text">
             <h1 className="hero-title">
-              <span className="gradient-text">报告佬 RepoBro</span>
-              <br /><span className="hero-subtitle-text">AI 驱动的专业分析服务</span>
+              <span className="gradient-text">{t('hero.title')}</span>
+              <br /><span className="hero-subtitle-text">{t('hero.subtitle')}</span>
             </h1>
             <p className="hero-subtitle">
-              以传统咨询千分之一的价格获得更高质量的分析报告
+              {t('hero.description')}
             </p>
             <div className="hero-features">
               <div className="feature-item">
-                <span>快速交付</span>
+                <span>{t('hero.feature1')}</span>
               </div>
               <div className="feature-item">
-                <span>AI+专业人士</span>
+                <span>{t('hero.feature2')}</span>
               </div>
               <div className="feature-item">
-                <span>超值9.9元</span>
+                <span>{t('hero.feature3')}</span>
               </div>
             </div>
           </div>
@@ -31,11 +35,11 @@ export default function Hero() {
                   <span></span>
                   <span></span>
                 </div>
-                <div className="mockup-title">行业分析报告</div>
+                <div className="mockup-title">{t('hero.mockupTitle')}</div>
               </div>
               <div className="mockup-content">
                 <div className="chart-placeholder">
-                  <div className="chart-title">PPT/PDF/可视化呈现/人工数据核实</div>
+                  <div className="chart-title">{t('hero.chartTitle')}</div>
                   <div className="chart-bars">
                     <div className="bar" style={{ height: '60%' }}></div>
                     <div className="bar" style={{ height: '80%' }}></div>

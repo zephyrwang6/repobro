@@ -1,15 +1,19 @@
+import { useLanguage } from '../contexts/LanguageContext'
+
 export default function Footer() {
+  const { t } = useLanguage()
+
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
           <div className="footer-logo">
-            <span>报告佬 RepoBro</span>
+            <span>{t('footer.logo')}</span>
           </div>
-          <p>让数据说话，让分析更智能</p>
+          <p>{t('footer.tagline')}</p>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2025 报告佬 RepoBro. 保留所有权利.</p>
+          <p>{t('footer.copyright')}</p>
         </div>
       </div>
     </footer>

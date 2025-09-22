@@ -1,39 +1,43 @@
+import { useLanguage } from '../contexts/LanguageContext'
+
 export default function Guarantees() {
+  const { t } = useLanguage()
+
   const guarantees = [
     {
-      title: "效率保证",
+      title: t('guarantees.efficiency.title'),
       items: [
-        "24小时快速响应",
-        "专业模板加速",
-        "AI工具辅助分析",
-        "高效交付流程"
+        t('guarantees.efficiency.item1'),
+        t('guarantees.efficiency.item2'),
+        t('guarantees.efficiency.item3'),
+        t('guarantees.efficiency.item4')
       ]
     },
     {
-      title: "质量保证",
+      title: t('guarantees.quality.title'),
       items: [
-        "专业分析师团队",
-        "多重质量检查",
-        "数据来源可靠",
-        "分析逻辑严谨"
+        t('guarantees.quality.item1'),
+        t('guarantees.quality.item2'),
+        t('guarantees.quality.item3'),
+        t('guarantees.quality.item4')
       ]
     },
     {
-      title: "服务保证",
+      title: t('guarantees.service.title'),
       items: [
-        "一对一专属服务",
-        "全程跟踪指导",
-        "后续答疑支持",
-        "满意度保障"
+        t('guarantees.service.item1'),
+        t('guarantees.service.item2'),
+        t('guarantees.service.item3'),
+        t('guarantees.service.item4')
       ]
     },
     {
-      title: "安全保证",
+      title: t('guarantees.security.title'),
       items: [
-        "信息严格保密",
-        "数据安全传输",
-        "专业合规处理",
-        "隐私充分保护"
+        t('guarantees.security.item1'),
+        t('guarantees.security.item2'),
+        t('guarantees.security.item3'),
+        t('guarantees.security.item4')
       ]
     }
   ]
@@ -42,8 +46,8 @@ export default function Guarantees() {
     <section className="guarantees">
       <div className="container">
         <div className="section-header">
-          <h2>服务保障</h2>
-          <p>全方位保障，让您安心选择</p>
+          <h2>{t('guarantees.title')}</h2>
+          <p>{t('guarantees.description')}</p>
         </div>
         <div className="guarantees-grid">
           {guarantees.map((guarantee, index) => (

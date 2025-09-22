@@ -1,10 +1,13 @@
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
+import { useLanguage } from '../contexts/LanguageContext'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import ImageModal from '../components/ImageModal'
+import SubscribeModal from '../components/SubscribeModal'
 
 export default function Products() {
+  const { t } = useLanguage()
   const [products, setProducts] = useState<Array<{
     folder: string;
     title: string;
@@ -12,41 +15,47 @@ export default function Products() {
   }>>([])
 
   useEffect(() => {
-    // 定义所有产品分析文件夹
+    // 根据语言获取产品数据
     const productFolders = [
-      { folder: 'anthoripic', title: 'Anthropic 分析', description: 'AI安全与对齐技术研究分析' },
-      { folder: 'chroma', title: 'Chroma 分析', description: '向量数据库技术优势分析' },
-      { folder: 'doubao', title: '豆包 分析', description: '字节跳动AI产品市场定位研究' },
-      { folder: 'google-AIstudio', title: 'Google AI 分析', description: '谷歌AI生态布局分析' },
-      { folder: 'granola', title: 'Granola 分析', description: 'AI工作流自动化平台分析' },
-      { folder: 'huggingface', title: 'Hugging Face 分析', description: 'AI开源平台商业模式研究' },
-      { folder: 'juns', title: 'Juns 分析', description: 'AI工具产品功能分析' },
-      { folder: 'kimi', title: 'Kimi 分析', description: '月之暗面AI产品分析' },
-      { folder: 'manud', title: 'Manud 分析', description: 'AI内容创作工具分析' },
-      { folder: 'ollama', title: 'Ollama 分析', description: '本地AI模型部署工具分析' },
-      { folder: 'openai', title: 'OpenAI 分析', description: 'ChatGPT与GPT技术生态分析' },
-      { folder: 'perplexity', title: 'Perplexity 分析', description: 'AI搜索引擎技术分析' },
-      { folder: 'pika', title: 'Pika 分析', description: 'AI视频生成技术分析' },
-      { folder: 'quilbot', title: 'Quillbot 分析', description: 'AI写作辅助工具分析' },
-      { folder: 'runway', title: 'Runway 分析', description: 'AI视频编辑平台分析' },
-      { folder: 'seweetchat', title: 'SeweetChat 分析', description: 'AI聊天机器人分析' },
-      { folder: 'stabledeffision', title: 'Stable Diffusion 分析', description: '开源AI图像生成模型分析' },
-      { folder: 'suno', title: 'Suno 分析', description: 'AI音乐生成技术分析' },
-      { folder: 'supabase', title: 'Supabase 分析', description: '开源Firebase替代方案分析' },
-      { folder: 'synthesia', title: 'Synthesia 分析', description: 'AI虚拟主播技术分析' }
+      { folder: 'anthoripic', titleKey: 'products.anthropic.title', descKey: 'products.anthropic.description' },
+      { folder: 'chroma', titleKey: 'products.chroma.title', descKey: 'products.chroma.description' },
+      { folder: 'doubao', titleKey: 'products.doubao.title', descKey: 'products.doubao.description' },
+      { folder: 'google-AIstudio', titleKey: 'products.google.title', descKey: 'products.google.description' },
+      { folder: 'granola', titleKey: 'products.granola.title', descKey: 'products.granola.description' },
+      { folder: 'huggingface', titleKey: 'products.huggingface.title', descKey: 'products.huggingface.description' },
+      { folder: 'juns', titleKey: 'products.juns.title', descKey: 'products.juns.description' },
+      { folder: 'kimi', titleKey: 'products.kimi.title', descKey: 'products.kimi.description' },
+      { folder: 'manud', titleKey: 'products.manud.title', descKey: 'products.manud.description' },
+      { folder: 'ollama', titleKey: 'products.ollama.title', descKey: 'products.ollama.description' },
+      { folder: 'openai', titleKey: 'products.openai.title', descKey: 'products.openai.description' },
+      { folder: 'perplexity', titleKey: 'products.perplexity.title', descKey: 'products.perplexity.description' },
+      { folder: 'pika', titleKey: 'products.pika.title', descKey: 'products.pika.description' },
+      { folder: 'quilbot', titleKey: 'products.quillbot.title', descKey: 'products.quillbot.description' },
+      { folder: 'runway', titleKey: 'products.runway.title', descKey: 'products.runway.description' },
+      { folder: 'seweetchat', titleKey: 'products.seweetchat.title', descKey: 'products.seweetchat.description' },
+      { folder: 'stabledeffision', titleKey: 'products.stablediffusion.title', descKey: 'products.stablediffusion.description' },
+      { folder: 'suno', titleKey: 'products.suno.title', descKey: 'products.suno.description' },
+      { folder: 'supabase', titleKey: 'products.supabase.title', descKey: 'products.supabase.description' },
+      { folder: 'synthesia', titleKey: 'products.synthesia.title', descKey: 'products.synthesia.description' }
     ]
     
-    setProducts(productFolders)
-  }, [])
+    const localizedProducts = productFolders.map(item => ({
+      folder: item.folder,
+      title: t(item.titleKey as any),
+      description: t(item.descKey as any)
+    }))
+    
+    setProducts(localizedProducts)
+  }, [t])
 
   return (
     <>
       <Head>
-        <title>产品分析案例 - 报告佬 RepoBro </title>
-        <meta name="description" content="查看我们为100+AI产品提供的专业行业分析报告案例，包括OpenAI、Google AI、Hugging Face等知名产品" />
-        <meta name="keywords" content="AI产品分析,行业报告,产品案例,技术分析" />
-        <meta property="og:title" content="产品分析案例 - 报告佬 RepoBro " />
-        <meta property="og:description" content="查看我们为100+AI产品提供的专业行业分析报告案例" />
+        <title>{t('templates.title')}</title>
+        <meta name="description" content={t('templates.description')} />
+        <meta name="keywords" content={t('templates.keywords')} />
+        <meta property="og:title" content={t('templates.ogTitle')} />
+        <meta property="og:description" content={t('templates.ogDescription')} />
         <meta property="og:type" content="website" />
       </Head>
 
@@ -56,9 +65,24 @@ export default function Products() {
       <section className="case-studies">
         <div className="container">
           <div className="section-header">
-            <h2>每日更新分析案例</h2>
-            <p>点击任意产品查看详细分析报告</p>
+            <h2>{t('templates.header')}</h2>
+            <p>{t('templates.subheader')}</p>
+            
+            {/* 订阅每日分析按钮 */}
+            <div className="subscribe-section">
+              <button 
+                className="subscribe-btn"
+                onClick={() => {
+                  if ((window as any).openSubscribeModal) {
+                    (window as any).openSubscribeModal()
+                  }
+                }}
+              >
+                {t('templates.subscribeButton')}
+              </button>
+            </div>
           </div>
+          
           <div className="case-grid">
             {products.map((product, index) => (
               <div 
@@ -71,7 +95,7 @@ export default function Products() {
                 }}
               >
                 <div className="case-image">
-                  <img src={`/${product.folder}/0.png`} alt={`${product.title} 分析报告案例`} />
+                  <img src={`/${product.folder}/0.png`} alt={`${product.title} ${t('templates.altText')}`} />
                 </div>
                 <h3>{product.title}</h3>
                 <p>{product.description}</p>
@@ -85,7 +109,7 @@ export default function Products() {
               rel="noopener noreferrer" 
               className="view-more-btn"
             >
-              查看更多
+              {t('templates.viewMore')}
             </a>
           </div>
         </div>
@@ -93,6 +117,7 @@ export default function Products() {
 
       <Footer />
       <ImageModal />
+      <SubscribeModal />
     </>
   )
 }

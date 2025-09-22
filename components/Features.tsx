@@ -1,36 +1,40 @@
+import { useLanguage } from '../contexts/LanguageContext'
+
 export default function Features() {
+  const { t } = useLanguage()
+
   const features = [
     {
-      title: "深度调研",
+      title: t('features.research.title'),
       items: [
-        "全网信息源搜罗整合",
-        "多维度数据收集分析",
-        "行业专家观点汇总"
+        t('features.research.item1'),
+        t('features.research.item2'),
+        t('features.research.item3')
       ]
     },
     {
-      title: "AI智能分析",
+      title: t('features.ai.title'),
       items: [
-        "专业分析模板定制",
-        "AI工具精准指导",
-        "数据洞察自动生成"
+        t('features.ai.item1'),
+        t('features.ai.item2'),
+        t('features.ai.item3')
       ]
     },
     {
-      title: "三重交付",
+      title: t('features.delivery.title'),
       items: [
-        "可复用的分析模板",
-        "详尽文字版分析报告",
-        "精美图文PPT演示",
-        "可视化数据图表"
+        t('features.delivery.item1'),
+        t('features.delivery.item2'),
+        t('features.delivery.item3'),
+        t('features.delivery.item4')
       ]
     },
     {
-      title: "高效服务",
+      title: t('features.service.title'),
       items: [
-        "24小时内快速回复",
-        "专属分析指导员对接",
-        "一对一定制化服务"
+        t('features.service.item1'),
+        t('features.service.item2'),
+        t('features.service.item3')
       ]
     }
   ]
@@ -39,8 +43,8 @@ export default function Features() {
     <section id="features" className="features">
       <div className="container">
         <div className="section-header">
-          <h2>产品介绍</h2>
-          <p>一站式行业分析解决方案，专业AI指导员+AI协同，24小时快速响应</p>
+          <h2>{t('features.title')}</h2>
+          <p>{t('features.description')}</p>
         </div>
         <div className="features-grid">
           {features.map((feature, index) => (

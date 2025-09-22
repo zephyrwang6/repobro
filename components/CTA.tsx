@@ -1,10 +1,14 @@
+import { useLanguage } from '../contexts/LanguageContext'
+
 export default function CTA() {
+  const { t } = useLanguage()
+
   return (
     <section id="contact" className="cta">
       <div className="container">
         <div className="cta-content">
-          <h2>准备好获取您的专业行业分析报告了吗？</h2>
-          <p>点击下方链接，填写需求表单，开启您的分析之旅！</p>
+          <h2>{t('cta.title')}</h2>
+          <p>{t('cta.description')}</p>
           <div className="cta-buttons">
             <a 
               href="https://v3oxu28gnc.feishu.cn/share/base/form/shrcnGjGtbvIUfnSvYRbDr7mqoc" 
@@ -12,18 +16,18 @@ export default function CTA() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              提交需求
+              {t('cta.submitButton')}
             </a>
           </div>
           <div className="contact-info">
             <div className="contact-item">
-              <span>客服邮箱：wzfh520@gmail.com</span>
+              <span>{t('cta.email')}</span>
             </div>
             <div className="contact-item">
-              <span>服务时间：7×24小时在线服务</span>
+              <span>{t('cta.serviceTime')}</span>
             </div>
             <div className="contact-item">
-              <span>分析指导员微信：支付后提供</span>
+              <span>{t('cta.wechat')}</span>
             </div>
           </div>
         </div>

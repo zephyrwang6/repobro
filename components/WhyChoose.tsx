@@ -1,35 +1,39 @@
+import { useLanguage } from '../contexts/LanguageContext'
+
 export default function WhyChoose() {
+  const { t } = useLanguage()
+
   const reasons = [
     {
-      title: "专业",
-      description: "资深分析师 + AI工具双重保障"
+      title: t('whyChoose.professional.title'),
+      description: t('whyChoose.professional.description')
     },
     {
-      title: "高效", 
-      description: "24小时快速交付，不让机会等待"
+      title: t('whyChoose.efficient.title'),
+      description: t('whyChoose.efficient.description')
     },
     {
-      title: "实惠",
-      description: "9.9元超值价格，一杯奶茶钱"
+      title: t('whyChoose.affordable.title'),
+      description: t('whyChoose.affordable.description')
     },
     {
-      title: "全面",
-      description: "文字+图表+PPT，满足不同需求"
+      title: t('whyChoose.comprehensive.title'),
+      description: t('whyChoose.comprehensive.description')
     },
     {
-      title: "有用",
-      description: "实用分析报告，指导决策行动"
+      title: t('whyChoose.useful.title'),
+      description: t('whyChoose.useful.description')
     },
     {
-      title: "贴心",
-      description: "一对一专属服务，全程无忧体验"
+      title: t('whyChoose.thoughtful.title'),
+      description: t('whyChoose.thoughtful.description')
     }
   ]
 
   return (
     <section className="why-choose">
       <div className="container">
-        <h2>选择我们的理由</h2>
+        <h2>{t('whyChoose.title')}</h2>
         <div className="reasons-grid">
           {reasons.map((reason, index) => (
             <div key={index} className="reason-item">

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
+import { useLanguage } from '../contexts/LanguageContext'
 
 export default function ImageModal() {
+  const { t } = useLanguage()
   const [isOpen, setIsOpen] = useState(false)
   const [currentFolder, setCurrentFolder] = useState('')
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
@@ -120,11 +122,11 @@ export default function ImageModal() {
           {isLoading ? (
             <div className="loading-container">
               <div className="loading-spinner"></div>
-              <p>正在加载图片...</p>
+              <p>{t('modal.loading')}</p>
             </div>
           ) : imageList.length === 0 ? (
             <div className="no-images-container">
-              <p>暂无图片内容</p>
+              <p>{t('modal.noImages')}</p>
             </div>
           ) : (
             <>
@@ -133,7 +135,7 @@ export default function ImageModal() {
                 <img 
                   id="modalImage" 
                   src={imageList[currentImageIndex]} 
-                  alt={`${currentFolder} 分析报告案例 ${currentImageIndex + 1}`}
+                  alt={`${currentFolder} ${t('modal.altText')} ${currentImageIndex + 1}`}
                 />
               </div>
               <button className="nav-btn next-btn" id="nextBtn" onClick={showNextImage}>›</button>

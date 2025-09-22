@@ -1,24 +1,28 @@
+import { useLanguage } from '../contexts/LanguageContext'
+
 export default function Process() {
+  const { t } = useLanguage()
+
   const steps = [
     {
       number: 1,
-      title: "提交需求",
-      description: "填写需求表单，详细描述分析要求，明确行业和重点领域"
+      title: t('process.step1.title'),
+      description: t('process.step1.description')
     },
     {
       number: 2,
-      title: "确认支付", 
-      description: "支付9.9元服务费用，获得订单确认信息"
+      title: t('process.step2.title'),
+      description: t('process.step2.description')
     },
     {
       number: 3,
-      title: "专家对接",
-      description: "添加专属分析指导员微信，一对一需求深度沟通"
+      title: t('process.step3.title'),
+      description: t('process.step3.description')
     },
     {
       number: 4,
-      title: "报告交付",
-      description: "24小时内完成分析，获得完整分析报告，支持后续答疑"
+      title: t('process.step4.title'),
+      description: t('process.step4.description')
     }
   ]
 
@@ -26,8 +30,8 @@ export default function Process() {
     <section id="process" className="process">
       <div className="container">
         <div className="section-header">
-          <h2>服务流程</h2>
-          <p>简单四步，获得专业行业分析报告</p>
+          <h2>{t('process.title')}</h2>
+          <p>{t('process.description')}</p>
         </div>
         <div className="process-steps">
           {steps.map((step, index) => (

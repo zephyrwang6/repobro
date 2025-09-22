@@ -1,3 +1,8 @@
+/* CSS Variables for i18n */
+:root {
+    --click-to-view-text: '点击查看大图';
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -119,6 +124,26 @@ p {
 
 .cta-btn:hover {
     opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* Language Switcher */
+.language-switcher {
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+    border: 1px solid #667eea;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 1rem;
+}
+
+.language-switcher:hover {
+    background: #667eea;
+    color: white;
     transform: translateY(-1px);
 }
 
@@ -805,7 +830,7 @@ p {
 }
 
 .case-image::after {
-    content: '点击查看大图';
+    content: var(--click-to-view-text);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1056,6 +1081,139 @@ p {
 .reason-item p {
     color: #666;
     margin: 0;
+}
+
+/* Subscribe Section */
+.section-header .subscribe-section {
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.subscribe-section {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem 0;
+}
+
+.subscribe-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.subscribe-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Subscribe Modal */
+.subscribe-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.subscribe-modal-content {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.subscribe-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+    line-height: 1;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subscribe-modal-close:hover {
+    color: #333;
+}
+
+.subscribe-modal-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.subscribe-modal-header h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.subscribe-modal-body {
+    text-align: center;
+}
+
+.qr-code-container {
+    margin-bottom: 1rem;
+}
+
+.qr-code-container img {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.subscribe-modal-desc {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.subscribe-modal-footer {
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .subscribe-modal-content {
+        padding: 1.5rem;
+    }
+    
+    .qr-code-container img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .subscribe-btn {
+        padding: 14px 28px;
+        font-size: 1rem;
+    }
 }
 
 /* Footer */
