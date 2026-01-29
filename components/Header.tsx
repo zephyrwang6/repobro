@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useLanguage } from '../contexts/LanguageContext'
 import LanguageSwitcher from './LanguageSwitcher'
+import ThemeSwitcher from './ThemeSwitcher'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -34,7 +35,7 @@ export default function Header() {
             <Link href="/" onClick={closeMobileMenu}>
               <Image 
                 src="/logo/logo.png" 
-                alt={`${t('header.logo')} Logo`}
+                alt={`\${t('header.logo')} Logo`}
                 width={32} 
                 height={32}
                 style={{ marginRight: '8px' }}
@@ -46,7 +47,6 @@ export default function Header() {
             </Link>
           </div>
           
-          {/* Desktop Navigation */}
           <nav className="nav-menu desktop-menu">
             <Link href="/home#features">{t('header.features')}</Link>
             <Link href="/templates">{t('header.cases')}</Link>
@@ -67,22 +67,22 @@ export default function Header() {
                 <p>{t('header.joinGroup')}</p>
               </div>
             </div>
+            <ThemeSwitcher />
             <LanguageSwitcher />
             <a href="https://v3oxu28gnc.feishu.cn/share/base/form/shrcnGjGtbvIUfnSvYRbDr7mqoc" target="_blank" rel="noopener noreferrer" className="cta-btn">{t('header.getReport')}</a>
           </nav>
 
-          {/* Mobile Navigation */}
           <div className="mobile-nav">
+            <ThemeSwitcher />
             <LanguageSwitcher />
             <a href="https://v3oxu28gnc.feishu.cn/share/base/form/shrcnGjGtbvIUfnSvYRbDr7mqoc" target="_blank" rel="noopener noreferrer" className="cta-btn mobile-cta">{t('header.getReport')}</a>
             <button className="hamburger" onClick={toggleMobileMenu} aria-label={t('header.menu')}>
-              <span className={`hamburger-line ${isMobileMenuOpen ? 'active' : ''}`}></span>
-              <span className={`hamburger-line ${isMobileMenuOpen ? 'active' : ''}`}></span>
-              <span className={`hamburger-line ${isMobileMenuOpen ? 'active' : ''}`}></span>
+              <span className={`hamburger-line \${isMobileMenuOpen ? 'active' : ''}`}></span>
+              <span className={`hamburger-line \${isMobileMenuOpen ? 'active' : ''}`}></span>
+              <span className={`hamburger-line \${isMobileMenuOpen ? 'active' : ''}`}></span>
             </button>
           </div>
 
-          {/* Mobile Menu Overlay */}
           {isMobileMenuOpen && (
             <div className="mobile-menu-overlay" onClick={closeMobileMenu}>
               <nav className="mobile-menu" onClick={(e) => e.stopPropagation()}>
